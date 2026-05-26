@@ -42,16 +42,11 @@
 {{ end }}{{ end }}
 {{- end }}
 
-{{- /* Deprecate site.Social.facebook_admin in favor of site.Params.social.facebook_admin */}}
+{{- /* site.Social removed in Hugo 0.161; we only use site.Params.social if set. */}}
 {{- $facebookAdmin := "" }}
 {{- with site.Params.social }}
   {{- if reflect.IsMap . }}
     {{- $facebookAdmin = .facebook_admin }}
-  {{- end }}
-{{- else }}
-  {{- with site.Social.facebook_admin }}
-    {{- $facebookAdmin = . }}
-    {{- warnf "The social key in site configuration is deprecated. Use params.social.facebook_admin instead." }}
   {{- end }}
 {{- end }}
 
