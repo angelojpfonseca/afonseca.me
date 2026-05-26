@@ -76,3 +76,56 @@ a:focus-visible {
 .afm-hero__cta a {
   font-weight: 500;
 }
+
+/* Home cards */
+.afm-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 1rem 0 4rem;
+}
+
+@media (min-width: 720px) {
+  .afm-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* Span the About card across both columns on wider screens. */
+  .afm-card--about {
+    grid-column: 1 / -1;
+  }
+}
+
+.afm-card {
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--entry);
+}
+
+.afm-card__title {
+  font-size: 1.125rem;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.afm-card__title a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.afm-card__title a:hover,
+.afm-card__title a:focus-visible {
+  color: var(--afm-accent);
+}
+
+.afm-card__summary {
+  font-size: 0.95rem;
+  margin: 0 0 0.5rem;
+  color: var(--primary);
+}
+
+.afm-card__meta {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  margin: 0;
+}

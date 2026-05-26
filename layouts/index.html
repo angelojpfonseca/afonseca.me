@@ -11,6 +11,30 @@
   </p>
 </section>
 
-{{- /* Task 11 inserts cards section here */}}
+<section class="afm-cards" aria-label="Highlights">
+  {{- $featured := where (where .Site.RegularPages "Section" "projects") "Params.featured" true }}
+  {{- range first 3 $featured }}
+    <article class="afm-card afm-card--project">
+      <h2 class="afm-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{- with .Params.summary }}<p class="afm-card__summary">{{ . }}</p>{{ end }}
+      {{- with .Params.period }}<p class="afm-card__meta">{{ . }}</p>{{ end }}
+    </article>
+  {{- end }}
+
+  {{- with .Site.GetPage "/now" }}
+    <article class="afm-card afm-card--now">
+      <h2 class="afm-card__title"><a href="{{ .RelPermalink }}">Now</a></h2>
+      <p class="afm-card__summary">{{ .Plain | truncate 240 }}</p>
+      <p class="afm-card__meta">Updated {{ .Lastmod.Format "2006-01-02" }}</p>
+    </article>
+  {{- end }}
+
+  <article class="afm-card afm-card--about">
+    <h2 class="afm-card__title"><a href="/about/">About</a></h2>
+    <p class="afm-card__summary">
+      Background, what I work on, how to reach me.
+    </p>
+  </article>
+</section>
 
 {{- end }}
