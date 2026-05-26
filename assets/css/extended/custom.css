@@ -129,3 +129,36 @@ a:focus-visible {
   color: var(--secondary);
   margin: 0;
 }
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+  padding: 1.5rem 0 2.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+.afm-footer-nav {
+  margin-bottom: 0.75rem;
+}
+
+.afm-footer-nav a {
+  margin: 0 0.5rem;
+  color: var(--primary);
+}
+
+.afm-footer-meta a {
+  color: var(--secondary);
+}
+
+.afm-footer-meta a:hover,
+.afm-footer-meta a:focus-visible {
+  color: var(--afm-accent);
+}
+
+.afm-footer-sep {
+  margin: 0 0.35rem;
+  color: var(--border);
+}
