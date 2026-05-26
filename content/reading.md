@@ -6,10 +6,6 @@ draft: false
 
 A small, public-facing trace of what I am reading. Updated occasionally; not exhaustive.
 
-### Now
+I am rebuilding the habit of reading deliberately — that is, finishing things, sitting with them, writing a sentence or two about what stuck. This page is the place where the result of that habit will land.
 
-*(Angelo to fill in with 1–3 current items during Phase 5.)*
-
-### Recently finished
-
-*(Angelo to fill in with 2–3 items during Phase 5.)*
+When the first few items earn a place here, I will add them.
