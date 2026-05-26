@@ -1,0 +1,55 @@
+/* assets/css/extended/custom.css
+   PaperMod loads any file under assets/css/extended/ automatically.
+   Keep additions here; do not edit PaperMod's own CSS files.
+*/
+
+:root {
+  /* Single muted accent — earth-tone. Verified WCAG AA on both themes. */
+  --afm-accent: #b87a4b;
+}
+
+.dark {
+  --primary: #e8e6e0;            /* off-white body text */
+  --secondary: #a8a59d;          /* dimmed text */
+  --tertiary: #2a2a2a;            /* card / divider */
+  --content: #e8e6e0;
+  --code-bg: #1a1a1a;
+  --entry: #141414;
+  --theme: #0d0d0d;               /* near-black background */
+  --border: #2a2a2a;
+}
+
+body,
+.post-content,
+.post-title,
+.first-entry .entry-header h1,
+.entry-header h2 {
+  font-family: "Iowan Old Style", "Charter", "IBM Plex Serif",
+               Georgia, "Times New Roman", serif;
+}
+
+code,
+pre,
+kbd,
+samp {
+  font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+
+a {
+  color: var(--afm-accent);
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+/* Preserve a visible focus ring for keyboard users. Do not remove. */
+:focus-visible {
+  outline: 2px solid var(--afm-accent);
+  outline-offset: 2px;
+}
+
+.main {
+  max-width: 720px;
+}
