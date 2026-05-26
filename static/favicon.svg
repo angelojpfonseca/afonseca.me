@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="8" fill="#0d0d0d"/>
+  <text x="32" y="42"
+        font-family="Iowan Old Style, Charter, IBM Plex Serif, Georgia, serif"
+        font-size="34" font-weight="600"
+        fill="#b87a4b"
+        text-anchor="middle">AF</text>
+</svg>
