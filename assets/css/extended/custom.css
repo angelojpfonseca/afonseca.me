@@ -53,3 +53,26 @@ a:focus-visible {
 .main {
   max-width: 720px;
 }
+
+/* Home hero */
+.afm-hero {
+  padding: 4rem 0 3rem;
+  text-align: left;
+}
+
+.afm-hero__title {
+  font-size: 2.25rem;
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+}
+
+.afm-hero__tagline {
+  font-size: 1.125rem;
+  color: var(--secondary);
+  margin: 0 0 1.5rem;
+  max-width: 36em;
+}
+
+.afm-hero__cta a {
+  font-weight: 500;
+}
