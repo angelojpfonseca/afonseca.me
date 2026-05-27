@@ -1,5 +1,6 @@
 ---
 title: "About"
+description: "Angelo Junio Pereira Fonseca — mechanical engineer turned consultant, currently working at the intersection of HVAC engineering, data analytics, and AI. Based in Mannheim."
 lastmod: 2026-05-26
 draft: false
 ---
