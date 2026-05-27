@@ -7,14 +7,10 @@
     <a href="/colophon/">Colophon</a>
   </nav>
 
+  {{- partial "social_icons.html" (dict "align" "center") }}
+
   <div class="afm-footer-meta">
     <span>&copy; {{ now.Format "2006" }} {{ .Site.Params.author | default .Site.Title }}</span>
-    <span class="afm-footer-sep">·</span>
-    <a href="https://github.com/angelojpfonseca">GitHub</a>
-    <span class="afm-footer-sep">·</span>
-    <a href="https://linkedin.com/in/angelojpfonseca">LinkedIn</a>
-    <span class="afm-footer-sep">·</span>
-    <a href="mailto:contact@afonseca.me">Email</a>
   </div>
 </footer>
 {{- end }}

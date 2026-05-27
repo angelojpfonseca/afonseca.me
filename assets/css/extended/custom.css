@@ -158,7 +158,23 @@ a:focus-visible {
   color: var(--afm-accent);
 }
 
-.afm-footer-sep {
-  margin: 0 0.35rem;
-  color: var(--border);
+.afm-footer-meta {
+  margin-top: 0.5rem;
+}
+
+/* PaperMod's .social-icons inside our footer — re-centre, tune spacing. */
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.5rem 0;
+}
+
+.footer .social-icons a {
+  color: var(--primary);
+}
+
+.footer .social-icons a:hover,
+.footer .social-icons a:focus-visible {
+  color: var(--afm-accent);
 }
