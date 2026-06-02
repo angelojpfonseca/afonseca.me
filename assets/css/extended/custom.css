@@ -3,21 +3,31 @@
    Keep additions here; do not edit PaperMod's own CSS files.
 */
 
+/* ── Palette: Forest Green ──────────────────────────────── */
+
 :root {
-  /* Single muted accent — earth-tone. Verified WCAG AA on both themes. */
-  --afm-accent: #b87a4b;
+  --theme:   #f5f6f2;
+  --entry:   #ffffff;
+  --primary: #181c17;
+  --secondary: #525a50;
+  --content: #181c17;
+  --border:  #d5d9cd;
+  --afm-accent: #2d5a3d;
+  --code-bg: #f0f0ec;
 }
 
 .dark {
-  --primary: #e8e6e0;            /* off-white body text */
-  --secondary: #a8a59d;          /* dimmed text */
-  --tertiary: #2a2a2a;            /* card / divider */
-  --content: #e8e6e0;
-  --code-bg: #1a1a1a;
-  --entry: #141414;
-  --theme: #0d0d0d;               /* near-black background */
-  --border: #2a2a2a;
+  --theme:   #141a14;
+  --entry:   #1e261e;
+  --primary: #e2e8e2;
+  --secondary: #8aaa8a;
+  --content: #e2e8e2;
+  --border:  #2d3d2d;
+  --afm-accent: #4ea86a;
+  --code-bg: #1a221a;
 }
+
+/* ── Typography ──────────────────────────────────────────── */
 
 body,
 .post-content,
@@ -28,12 +38,11 @@ body,
                Georgia, "Times New Roman", serif;
 }
 
-code,
-pre,
-kbd,
-samp {
+code, pre, kbd, samp {
   font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
 }
+
+/* ── Links and focus ─────────────────────────────────────── */
 
 a {
   color: var(--afm-accent);
@@ -44,137 +53,147 @@ a:focus-visible {
   text-decoration: underline;
 }
 
-/* Preserve a visible focus ring for keyboard users. Do not remove. */
 :focus-visible {
   outline: 2px solid var(--afm-accent);
   outline-offset: 2px;
 }
 
+/* ── Layout ──────────────────────────────────────────────── */
+
+/* Widen the main container globally (was 720px in v0.1) */
 .main {
-  max-width: 720px;
+  max-width: 960px;
 }
 
-/* Home hero */
+/* Narrow prose content on inner pages (PaperMod single/list) */
+.post-content {
+  max-width: 680px;
+}
+
+/* ── Home hero ───────────────────────────────────────────── */
+
 .afm-hero {
-  padding: 4rem 0 3rem;
-  text-align: left;
+  padding: 3.5rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
 }
 
-.afm-hero__title {
-  font-size: 2.25rem;
-  margin: 0 0 0.5rem;
+.afm-hero__name {
+  font-size: 2.1rem;
   font-weight: 600;
-}
-
-.afm-hero__tagline {
-  font-size: 1.125rem;
-  color: var(--secondary);
-  margin: 0 0 1.5rem;
-  max-width: 36em;
-}
-
-.afm-hero__cta a {
-  font-weight: 500;
-}
-
-/* Home cards */
-.afm-cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  padding: 1rem 0 4rem;
-}
-
-@media (min-width: 720px) {
-  .afm-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-  /* Span the About card across both columns on wider screens. */
-  .afm-card--about {
-    grid-column: 1 / -1;
-  }
-}
-
-.afm-card {
-  padding: 1.25rem 1.25rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--entry);
-}
-
-.afm-card__title {
-  font-size: 1.125rem;
-  margin: 0 0 0.5rem;
-  font-weight: 600;
-}
-
-.afm-card__title a {
+  letter-spacing: -0.02em;
+  margin: 0 0 0.3rem;
   color: var(--primary);
+}
+
+.afm-hero__label {
+  font-size: 1rem;
+  color: var(--secondary);
+  margin: 0 0 1rem;
+}
+
+.afm-hero__label a {
+  color: var(--afm-accent);
   text-decoration: none;
 }
 
-.afm-card__title a:hover,
-.afm-card__title a:focus-visible {
-  color: var(--afm-accent);
+.afm-hero__label a:hover,
+.afm-hero__label a:focus-visible {
+  text-decoration: underline;
 }
 
-.afm-card__summary {
-  font-size: 0.95rem;
-  margin: 0 0 0.5rem;
-  color: var(--primary);
+/* ── Social pills ────────────────────────────────────────── */
+
+.afm-social-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
 }
 
-.afm-card__meta {
-  font-size: 0.85rem;
+.afm-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   color: var(--secondary);
-  margin: 0;
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--entry);
 }
 
-/* Footer */
+.afm-social-pill:hover,
+.afm-social-pill:focus-visible {
+  color: var(--afm-accent);
+  border-color: var(--afm-accent);
+  text-decoration: none;
+}
+
+.afm-social-pill svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Home cards ──────────────────────────────────────────── */
+
+.afm-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.afm-card {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 1.4rem 1.5rem;
+}
+
+.afm-card--full {
+  grid-column: 1 / -1;
+}
+
+.afm-card h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--afm-accent);
+  margin: 0 0 0.55rem;
+  letter-spacing: -0.01em;
+}
+
+.afm-card p {
+  font-size: 0.92rem;
+  color: var(--secondary);
+  line-height: 1.65;
+  margin: 0 0 0.75rem;
+}
+
+.afm-card p em {
+  font-style: italic;
+}
+
+.afm-card__link {
+  font-size: 0.85rem;
+  color: var(--afm-accent);
+  text-decoration: none;
+}
+
+.afm-card__link:hover,
+.afm-card__link:focus-visible {
+  text-decoration: underline;
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+
 .footer {
   border-top: 1px solid var(--border);
   margin-top: 4rem;
-  padding: 1.5rem 0 2.5rem;
+  padding: 1.2rem 0;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   color: var(--secondary);
-}
-
-.afm-footer-nav {
-  margin-bottom: 0.75rem;
-}
-
-.afm-footer-nav a {
-  margin: 0 0.5rem;
-  color: var(--primary);
-}
-
-.afm-footer-meta a {
-  color: var(--secondary);
-}
-
-.afm-footer-meta a:hover,
-.afm-footer-meta a:focus-visible {
-  color: var(--afm-accent);
-}
-
-.afm-footer-meta {
-  margin-top: 0.5rem;
-}
-
-/* PaperMod's .social-icons inside our footer — re-centre, tune spacing. */
-.footer .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
-  margin: 0.5rem 0;
-}
-
-.footer .social-icons a {
-  color: var(--primary);
-}
-
-.footer .social-icons a:hover,
-.footer .social-icons a:focus-visible {
-  color: var(--afm-accent);
 }
