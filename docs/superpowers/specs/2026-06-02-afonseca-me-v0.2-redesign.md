@@ -13,25 +13,32 @@ and a colour palette that looked AI-generated. This spec replaces those decision
 
 ### Navigation (header)
 
-| Item | URL | Notes |
-|---|---|---|
-| About | `/about/` | Bio, reading list, CV, social links |
-| Projects | `/projects/` | Existing case studies |
-| Home Lab | `/homelab/` | Tools (replaces `/uses/`), Colophon |
+| Item | Display name | URL | Notes |
+|---|---|---|---|
+| About | About | `/about/` | Bio, reading list link, CV, social links |
+| Projects | Projects | `/projects/` | Existing case studies |
+| Home Lab | Home Lab | `/homelab/` | Tools (replaces `/uses/`), Colophon |
 
 3D Printing (`/3d-printing/`) and DIY (`/diy/`) are planned sections, added to the nav
 **only when they have real content**. Do not create placeholder pages.
+
+**Naming note:** The nav item "Home Lab" (`/homelab/`) is a tools/setup page. The existing
+project case study `projects/homelab.md` is titled "Homelab and side experiments." These are
+two different things. To reduce confusion, rename the project case study title to
+"Personal lab and side experiments" in its front matter — the URL `/projects/homelab/` stays
+unchanged. This separates the nav concept (tools page) from the project concept (case study).
 
 ### Page inventory
 
 | URL | Page | Status |
 |---|---|---|
 | `/` | Home | Redesigned |
-| `/about/` | About | Expanded — absorbs Reading, social links, CV link |
+| `/about/` | About | Expanded — adds Reading link, social links, CV link |
 | `/projects/` | Projects index | Unchanged |
 | `/projects/<slug>/` | Project case study | Unchanged |
-| `/homelab/` | Home Lab | New — merges `/uses/` and `/colophon/` |
-| `/now/` | Now | Kept, not linked from nav or home; accessible via direct URL |
+| `/homelab/` | Home Lab | New — merges `/uses/` and `/colophon/` content |
+| `/reading/` | Reading | Unchanged — linked from About page |
+| `/now/` | Now | Kept, not in nav or home; accessible via direct URL |
 | `/contact/` | Contact | Kept at URL, not in nav |
 | `/cv.pdf` | CV | Unchanged |
 
@@ -39,15 +46,15 @@ and a colour palette that looked AI-generated. This spec replaces those decision
 
 ### Dropped from navigation
 
-- **Contact** — email address is in the hero on the home page and in the About page. A dedicated nav item is redundant.
-- **Now** — kept as a page at `/now/` but not advertised. People who know the `/now` convention can find it.
+- **Contact** — email is in the hero and on the About page. Nav item redundant.
+- **Now** — kept at `/now/` but not advertised. People who know the convention can find it.
 - **Footer nav** (Now · Uses · Reading · Colophon) — removed. Footer shows only copyright.
 
 ## Home page
 
 ### Structure
 
-Everything fits above the fold on a standard laptop screen. No scrolling required to see all sections.
+Everything fits above the fold on a 1366×768 viewport at 100% zoom with default system font size.
 
 ```
 [Nav: Angelo Fonseca | About · Projects · Home Lab]
@@ -59,7 +66,7 @@ Mechanical engineer. Mannheim, Germany. · CV (PDF) ↗
 [About card — full width]
   About
   Bio paragraph
-  Full about page — reading list, CV →
+  Full about page →
 
 [Projects card]     [Home Lab card]
   Projects            Home Lab
@@ -71,7 +78,7 @@ Mechanical engineer. Mannheim, Germany. · CV (PDF) ↗
 
 ### Hero
 
-- **Name:** `Angelo Fonseca` — large, no tagline
+- **Name:** `Angelo Fonseca` — large heading, no tagline
 - **Label:** `Mechanical engineer. Mannheim, Germany.` — factual, no promotional framing
 - **CV link:** inline after the label, `CV (PDF) ↗`
 - **Social links:** horizontal row of pill-style links with SVG icons — GitHub, LinkedIn, email
@@ -81,25 +88,44 @@ Mechanical engineer. Mannheim, Germany. · CV (PDF) ↗
 
 Card titles are `h2` elements — visible, prominent, not the v0.1 faint uppercase label style.
 Three cards:
-1. **About** — full width (2 columns). Bio excerpt, link to full about page.
+1. **About** — full width (spans both columns). Bio excerpt, link to full about page.
 2. **Projects** — half width. One-line description, "See all projects →" link.
 3. **Home Lab** — half width. One-line description, "Tools, colophon →" link.
+
+The home page no longer iterates `featured: true` project front matter. The three cards are
+static. The `featured: true` flag on project entries becomes inert — remove it from all project
+front matter to avoid confusion.
 
 ## Visual direction
 
 ### Colour palette — Forest green
 
-| Token | Value | Use |
-|---|---|---|
-| Background | `#f5f6f2` | Page background |
-| Surface | `#ffffff` | Cards |
-| Border | `#d5d9cd` | Card borders, dividers |
-| Text primary | `#181c17` | Body text, headings |
-| Text secondary | `#525a50` | Nav links, meta text |
-| Text muted | `#8a9088` | Footer, timestamps |
-| Accent | `#2d5a3d` | Links, card headings, social pill hover |
+Light mode (default):
 
-Dark mode: PaperMod's built-in toggle remains available. Define a matching dark variant in `custom.css`.
+| Design token | CSS variable | Value | Use |
+|---|---|---|---|
+| Background | `--theme` | `#f5f6f2` | Page background |
+| Surface | `--entry` | `#ffffff` | Cards |
+| Border | `--border` | `#d5d9cd` | Card borders, dividers |
+| Text primary | `--primary` / `--content` | `#181c17` | Body text, headings |
+| Text secondary | `--secondary` | `#525a50` | Nav links, meta text |
+| Text muted | — (custom) | `#8a9088` | Footer, timestamps |
+| Accent | `--afm-accent` | `#2d5a3d` | Links, card headings, social pill hover |
+
+Dark mode overrides (`.dark` block in `custom.css`):
+
+| Design token | CSS variable | Value |
+|---|---|---|
+| Background | `--theme` | `#141a14` |
+| Surface | `--entry` | `#1e261e` |
+| Border | `--border` | `#2d3d2d` |
+| Text primary | `--primary` / `--content` | `#e2e8e2` |
+| Text secondary | `--secondary` | `#8aaa8a` |
+| Accent (dark) | `--afm-accent` | `#4ea86a` |
+
+`#4ea86a` on `#141a14` achieves approximately 7:1 contrast — passes WCAG AA for normal text.
+`#2d5a3d` on `#141a14` fails (≈2.5:1) and must not be used as foreground on dark backgrounds.
+Verify both values with a contrast checker before merging.
 
 ### Typography
 
@@ -108,73 +134,100 @@ No web fonts.
 
 ### Layout
 
-- **Content max-width:** `960px` (up from `720px` in v0.1)
-- **Home page:** single-column max-width container, 2-column card grid below the hero
-- **Inner pages** (About, Projects, Home Lab): reading-width `680px` centred within the `960px` container
+- **Global container:** `.main { max-width: 960px }` — applies to all pages
+- **Home page:** 2-column card grid within the 960px container
+- **Inner pages** (About, Projects, Home Lab, reading, now): prose content wrapped in an
+  `.afm-prose` container limited to `680px`. The selector is:
+  ```css
+  body:not(.home) .main .afm-prose { max-width: 680px; }
+  ```
+  Every inner-page template must wrap its body content in `<div class="afm-prose">`.
+  The home page (`layouts/index.html`) does not use `.afm-prose`.
 
 ### No dark default
 
 v0.2 switches to **light as default** (`defaultTheme = "light"` in `hugo.toml`).
-The theme toggle remains so users can switch to dark manually.
+The theme toggle remains available for users who prefer dark.
 
 ## About page
 
-Absorbs content currently spread across separate pages:
-- Bio (existing `about.md`)
-- Reading list (existing `reading.md` — merged as a section within About)
-- Social links and CV link (previously footer / home only)
+Content:
+- Bio (existing `about.md` body — unchanged)
+- Visible link to `/reading/` ("Reading list →") added near the end of the bio
+- Social links and CV link displayed prominently (can use PaperMod's `social_icons.html` partial
+  or inline links — consistent with the hero pill style)
 
-`/reading/` stays as a standalone page. The About page gets a visible link to it
-("Reading list →"). Do not merge files — Hugo handles them separately.
+`/reading/` stays as a standalone page. About links to it; its content is not merged into
+`about.md`. Hugo handles them as separate files.
 
 ## Home Lab page
 
-New page at `/homelab/`. Absorbs:
-- **Tools** (content from existing `uses.md`)
-- **Colophon** (content from existing `colophon.md`)
+New leaf page at `content/homelab.md`. Structured as two sections:
+1. **Tools** — content migrated from `uses.md`
+2. **How this site is built** — content migrated from `colophon.md`
 
-Structured as two sections on one page: "Tools" then "How this site is built."
-`/uses/` and `/colophon/` stay as thin pages with a single line pointing to `/homelab/`.
-No content removed — just a "This page has moved to Home Lab" note with a link.
+`/uses/` and `/colophon/` stay as thin pages with a single forwarding note:
+"This page has moved to [Home Lab](/homelab/)." No content deleted.
+
+## Deployment
+
+Unchanged — VPS via Ansible as documented in `CLAUDE.md`. The v0.1 spec describes GitHub Pages;
+that is stale. Do not introduce any new CI or deploy mechanism.
 
 ## Implementation notes
 
 ### `hugo.toml` changes
 
 - `defaultTheme = "light"` (was `"dark"`)
-- `.main { max-width: 960px }` in `custom.css` (was `720px`)
-- Menu rewrite: About · Projects · Home Lab
+- Menu rewrite: About · Projects · Home Lab (remove Contact entry)
 
 ### CSS changes (`assets/css/extended/custom.css`)
 
-- Replace `--afm-accent: #b87a4b` with `--afm-accent: #2d5a3d`
-- Add full palette variable set (background, surface, border, text tokens)
-- Update light-mode overrides to use new palette
-- Update dark-mode overrides to match
+- Set `--afm-accent: #2d5a3d` (was `#b87a4b`) at `:root`
+- Add full light-mode palette overrides (PaperMod defaults to light; these override its defaults
+  with the forest-green palette values — this is new, v0.1 had no light-mode overrides)
+- Rewrite `.dark { … }` block with the dark-mode palette above
+- Add `.afm-prose { max-width: 680px; }` rule
+- Remove dead CSS: `.afm-footer-nav`, `.footer .social-icons`, `.afm-footer-meta` rules are
+  unused after the footer strip — delete them
+- Remove `.afm-cards`, `.afm-card`, `.afm-card--project`, `.afm-card--now`, `.afm-card--about`
+  rules — replaced by new card styles for the v0.2 home layout
 
-### New layout files
+### Layout files
 
-- `layouts/index.html` — rewrite hero + cards structure
-- `layouts/partials/footer.html` — strip nav links, keep only copyright
-- `content/homelab.md` — new leaf page (not a section; no sub-pages needed)
+- `layouts/index.html` — rewrite: hero + social pills + 3-card grid
+- `layouts/partials/footer.html` — strip to copyright only
+- `content/homelab.md` — new leaf page
 
-### Social icons
+### Social icons (hero pills)
 
-Use PaperMod's existing `social_icons.html` partial for consistency where possible.
-For the hero pill-style row, inline SVG is acceptable — GitHub, LinkedIn, email icons only.
+Inline SVG for the three hero pills (GitHub, LinkedIn, email). Do not use PaperMod's
+`social_icons.html` for the hero — that partial renders icon-only links; the pills need
+icon + label text. The partial remains in use on the About page if desired.
+
+### Front matter cleanup
+
+- `content/projects/homelab.md`: change `title` to `"Personal lab and side experiments"`,
+  remove `featured: true`
+- `content/projects/daikin-ai-rag.md`: remove `featured: true`
+- `content/projects/personal-website.md`: remove `featured: true`
 
 ## Content privacy constraints
 
 All constraints from the v0.1 spec remain in force — no fatherhood, no partner details,
-no exact address, no birthdate, no phone. See `docs/superpowers/specs/2026-05-26-afonseca-me-redesign-design.md`.
+no exact address, no birthdate, no phone number. See
+`docs/superpowers/specs/2026-05-26-afonseca-me-redesign-design.md`.
 
 ## Success criteria
 
-1. Home page fits above the fold on a 1080p laptop screen (1366×768 or larger).
-2. Card headings (About, Projects, Home Lab) are visually prominent — same weight as body `h2`.
-3. Accent colour is `#2d5a3d` throughout — no remaining amber (`#b87a4b`).
-4. Nav shows About · Projects · Home Lab only.
-5. Footer shows only copyright — no nav links.
-6. Social pills in hero render with correct SVG icons on all three entries.
-7. Hugo builds clean, no broken internal links.
-8. Light mode is the default; dark toggle still works.
+1. Home page fits above the fold at 1366×768 viewport, 100% zoom, default system font size.
+2. Card headings (About, Projects, Home Lab) render as prominent `h2` elements.
+3. Light-mode accent `#2d5a3d` and dark-mode accent `#4ea86a` both verified WCAG AA against
+   their respective backgrounds before merge. No amber (`#b87a4b`) remains in `custom.css`.
+4. Nav shows About · Projects · Home Lab only — no Contact, no Writing.
+5. Footer shows `© 2026 Angelo Fonseca` only — no nav links.
+6. Social pills in hero: three entries (GitHub, LinkedIn, email), each with correct SVG icon.
+7. Hugo builds clean (`hugo --minify`), no broken internal links.
+8. Light mode is the default; dark toggle switches correctly to the dark forest-green palette.
+9. `/uses/` and `/colophon/` return HTTP 200 with forwarding note — no 404s.
+10. `featured: true` removed from all project front matter.
