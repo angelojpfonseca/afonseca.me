@@ -36,8 +36,17 @@ domain.
 - **PaperMod `v8.0`** — git submodule (`themes/PaperMod`). Manual upgrade after
   testing only; never automatic.
 
+## Local development
+
+**Hugo is not installed on the local machine.** Build verification only happens on deploy via the Ansible playbook. When writing implementation plans or verify steps, do not rely on `hugo --minify` or `hugo server` locally — verify templates and CSS by inspection instead. Install from the quilombo pin if local builds become needed (quilombo #279).
+
+## PaperMod gotcha
+
+Overriding `layouts/partials/footer.html` strips PaperMod's theme-toggle `addEventListener` script. Always include it (or check `layouts/partials/extend_footer.html`) when touching the footer partial.
+
 ## References
 
-- Design spec: `docs/superpowers/specs/2026-05-26-afonseca-me-redesign-design.md`
-- Implementation plan: `docs/superpowers/plans/2026-05-26-afonseca-me-v0.1.md`
+- Design spec (v0.2, current): `docs/superpowers/specs/2026-06-02-afonseca-me-v0.2-redesign.md`
+- Design spec (v0.1, superseded): `docs/superpowers/specs/2026-05-26-afonseca-me-redesign-design.md`
+- Implementation plan (v0.2): `docs/superpowers/plans/2026-06-02-afonseca-me-v0.2.md`
 - Deploy role: quilombo `ansible/roles/hugo-site/`
