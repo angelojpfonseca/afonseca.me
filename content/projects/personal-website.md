@@ -9,7 +9,6 @@ stack: ["Hugo", "PaperMod", "GitHub Actions", "GitHub Pages"]
 links:
   - title: "Source on GitHub"
     url: "https://github.com/angelojpfonseca/afonseca.me"
-featured: true
 ---
 
 The site you are reading. Designed and built end-to-end as a small but deliberate exercise in shipping something with a long shelf life: minimal JavaScript, no analytics, no third-party requests, content I can update from a terminal.

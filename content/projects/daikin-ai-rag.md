@@ -7,7 +7,6 @@ role: "Pre-Sales Consultant, lead on the AI integration thread"
 period: "2025 – present"
 stack: ["Python", "LLMs (Anthropic / OpenAI / Ollama)", "Retrieval-Augmented Generation", "LangChain", "Power BI"]
 links: []
-featured: true
 ---
 
 At Daikin Airconditioning Germany, customer quotations in the HVAC pre-sales process involve a mix of structured product data, semi-structured engineering specifications, and unstructured customer requirements. Generating a quotation is a careful translation exercise — pulling the right products, applying the right configurations, and writing the result in language a customer will recognise.

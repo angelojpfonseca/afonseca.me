@@ -1,5 +1,5 @@
 ---
-title: "Homelab and side experiments"
+title: "Personal lab and side experiments"
 date: 2026-05-26
 draft: false
 summary: "A small home lab for virtualisation and AI experiments, plus a handful of hobby projects in 3D printing, electronics, and robotics."
@@ -7,7 +7,6 @@ role: "Builder"
 period: "ongoing"
 stack: ["Linux", "Hypervisors", "Microcontrollers", "3D printing", "LLMs", "Multi-agent frameworks (Autogen, CrewAI)"]
 links: []
-featured: true
 ---
 
 A small home lab I run on the side, built around a single rule: anything dealing with personal or sensitive data runs locally on hardware I control, on a network with default-deny policies. Cloud services are used only where no local alternative exists.
