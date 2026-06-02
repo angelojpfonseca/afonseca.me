@@ -19,4 +19,6 @@ Working languages: Portuguese (native), German (fluent), English (fluent). Worki
 
 For the formal arc with dates and details, the [CV is here as a PDF](/cv.pdf).
 
+What I am reading: [Reading list](/reading/).
+
 To talk — about a project, a role, a question — reach me at [contact@afonseca.me](mailto:contact@afonseca.me).
