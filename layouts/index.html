@@ -20,18 +20,7 @@
 
 <section class="home-block">
   <h2 class="kicker">Projects</h2>
-  <ul class="project-list">
-    {{- range where site.RegularPages "Section" "projects" }}
-    <li>
-      <span class="plist-row">
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <span class="plist-leader" aria-hidden="true"></span>
-        <span class="plist-period">{{ .Params.period }}</span>
-      </span>
-      <p>{{ .Params.summary }}</p>
-    </li>
-    {{- end }}
-  </ul>
+  {{ partial "project-list.html" (where site.RegularPages "Section" "projects") }}
 </section>
 
 <section class="home-block">

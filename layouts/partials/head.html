@@ -1,7 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<meta name="description" content="{{ partial "page-description.html" . }}">
 <meta name="author" content="{{ site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
 {{ with .OutputFormats.Get "rss" -}}
@@ -17,10 +17,18 @@
 {{ $css := resources.Get "css/main.css" | minify | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <script>
-  // Apply stored theme before first paint. Default is light.
-  if (localStorage.getItem("pref-theme") === "dark") {
-    document.documentElement.classList.add("dark");
-  }
+  // Apply stored theme before first paint (default light) and keep the
+  // browser-chrome colour in sync. localStorage may be blocked — treat
+  // that as "no stored preference".
+  (function () {
+    var dark = false;
+    try { dark = localStorage.getItem("pref-theme") === "dark"; } catch (e) {}
+    if (dark) {
+      document.documentElement.classList.add("dark");
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.setAttribute("content", "#141a14");
+    }
+  })();
 </script>
 {{ partial "templates/opengraph.html" . }}
 {{ partial "templates/twitter_cards.html" . }}

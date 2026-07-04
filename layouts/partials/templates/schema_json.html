@@ -3,9 +3,9 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Angelo Fonseca",
+  "name": {{ site.Title }},
   "url": {{ site.Home.Permalink }},
-  "image": {{ "/img/angelo.jpg" | absURL }},
+  "image": {{ index site.Params.images 0 | absURL }},
   "jobTitle": "Pre-Sales Consultant",
   "worksFor": {
     "@type": "Organization",
@@ -22,4 +22,31 @@
   ]
 }
 </script>
+{{- else }}
+{{- /* BreadcrumbList for every non-home page; Article for regular pages. */}}
+{{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" site.Title "item" site.Home.Permalink) }}
+{{- $pos := 2 }}
+{{- range .Ancestors.Reverse }}
+  {{- if not .IsHome }}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" $pos "name" .Title "item" .Permalink) }}
+    {{- $pos = add $pos 1 }}
+  {{- end }}
+{{- end }}
+{{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" $pos "name" .Title "item" .Permalink) }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $crumbs | jsonify | safeJS }}</script>
+{{- if .IsPage }}
+{{- $iso8601 := "2006-01-02T15:04:05-07:00" }}
+{{- $article := dict
+      "@context" "https://schema.org"
+      "@type" "Article"
+      "headline" .Title
+      "description" (partial "page-description.html" .)
+      "url" .Permalink
+      "mainEntityOfPage" .Permalink
+      "image" ((.Params.image | default (index site.Params.images 0)) | absURL)
+      "author" (dict "@type" "Person" "name" site.Params.author) }}
+{{- with .PublishDate }}{{ $article = merge $article (dict "datePublished" (.Format $iso8601)) }}{{ end }}
+{{- with .Lastmod }}{{ $article = merge $article (dict "dateModified" (.Format $iso8601)) }}{{ end }}
+<script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
+{{- end }}
 {{- end }}

@@ -1,0 +1,14 @@
+{{- /* Renders a page collection as the dotted-leader project list.
+       Used by the home page and the projects section list. */ -}}
+<ul class="project-list">
+  {{- range . }}
+  <li>
+    <span class="plist-row">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="plist-leader" aria-hidden="true"></span>
+      <span class="plist-period">{{ .Params.period }}</span>
+    </span>
+    <p>{{ .Params.summary }}</p>
+  </li>
+  {{- end }}
+</ul>

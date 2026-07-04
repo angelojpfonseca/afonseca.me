@@ -1,5 +1,6 @@
 ---
 title: "Angelo Fonseca"
+date: 2026-07-04
 lastmod: 2026-07-04
 currently:
   - "Leading the AI thread of a customer-quotation automation project at Daikin."

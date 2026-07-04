@@ -20,9 +20,7 @@ redistributable; Iowan Old Style and Charter are not cleanly so.
 | File | sha256 |
 |---|---|
 | `IBMPlexSerif-Regular.woff2` | `024ebce13cec984b46e350dd85fa7c01105c777e116bfe95f097ad7fa93f39f2` |
-| `IBMPlexSerif-Italic.woff2` | `ba5feed9ebae36e3b6ae3486052c90f4f42a294fa67a7c9415985175d19c4c82` |
 | `IBMPlexSerif-SemiBold.woff2` | `030d808e82f99ebe5c21d50745bd06e5ce16ad9e94b360f5adcc19362beb5344` |
-| `IBMPlexSerif-Bold.woff2` | `3b9eb99793dd9fed419aaf1af03559ea28bac17b7cb6146e7f8fc3db813621fe` |
 
 ## JetBrains Mono
 
@@ -33,11 +31,14 @@ redistributable; Iowan Old Style and Charter are not cleanly so.
 | File | sha256 |
 |---|---|
 | `JetBrainsMono-Regular.woff2` | `a9cb1cd82332b23a47e3a1239d25d13c86d16c4220695e34b243effa999f45f2` |
-| `JetBrainsMono-Medium.woff2` | `086c48dfbea9ddaff1320f7e09399b8e2924e88ce67453721255db3bdbb5a353` |
 
 ## Weight map (what the CSS uses)
 
-- Serif 400 regular + italic (body), 600 (headings, site name), 700 (`strong`).
-- Mono 400 (code, nav), 500 (kickers, spec-table headers, title-block labels).
+- Serif 400 (body), 600 (headings, site name, and `strong`/`b` via an explicit
+  rule — no separate Bold file). Italic is browser-synthesized (a single `em`
+  exists site-wide); revisit if italic prose grows.
+- Mono 400 (code, nav, kickers, spec-table headers, title-block labels).
 
-Total payload: ~472 KB across six files; each page loads at most four.
+Three files only, all preloaded; total payload ~236 KB. Trimmed from six files
+on 2026-07-04 after review: Medium/Bold/Italic bought no visible difference at
+the sizes used (review finding, PR #18).

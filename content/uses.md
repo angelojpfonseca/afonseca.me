@@ -1,5 +1,6 @@
 ---
 title: "Uses"
+date: 2026-05-26
 lastmod: 2026-06-02
 draft: false
 ---

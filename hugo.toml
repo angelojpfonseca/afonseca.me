@@ -10,6 +10,7 @@ disableKinds = ["taxonomy", "term"]
 [params]
   author = "Angelo Fonseca"
   description = "Mechanical engineer working in data and AI. Mannheim, Germany."
+  images = ["/img/angelo.jpg"]
   location = "Mannheim, Germany"
   email = "contact@afonseca.me"
   github = "https://github.com/angelojpfonseca"

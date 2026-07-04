@@ -32,6 +32,9 @@
   document.getElementById("theme-toggle").addEventListener("click", function () {
     var root = document.documentElement;
     root.classList.toggle("dark");
-    localStorage.setItem("pref-theme", root.classList.contains("dark") ? "dark" : "light");
+    var dark = root.classList.contains("dark");
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", dark ? "#141a14" : "#f5f6f2");
+    try { localStorage.setItem("pref-theme", dark ? "dark" : "light"); } catch (e) {}
   });
 </script>

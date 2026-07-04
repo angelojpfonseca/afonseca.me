@@ -1,5 +1,6 @@
 ---
 title: "Contact"
+date: 2026-05-26
 lastmod: 2026-05-26
 draft: false
 ---
