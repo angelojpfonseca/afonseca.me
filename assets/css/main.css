@@ -3,6 +3,56 @@
    thick/thin rules, title-block footer. No frameworks, no theme.
    Spec: docs/superpowers/specs/2026-07-04-afonseca-me-v0.3-redesign.md */
 
+/* ── Self-hosted fonts (pins + hashes: docs/fonts.md) ───────── */
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url("/fonts/IBMPlexSerif-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url("/fonts/IBMPlexSerif-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url("/fonts/IBMPlexSerif-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  src: url("/fonts/IBMPlexSerif-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── Palette (forest green, carried over from v0.2) ─────────── */
 
 :root {
@@ -45,7 +95,7 @@ body {
   max-width: 44rem;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Iowan Old Style", "Charter", "IBM Plex Serif",
+  font-family: "IBM Plex Serif", "Iowan Old Style", "Charter",
                Georgia, "Times New Roman", serif;
   font-size: 1.0625rem;
   line-height: 1.7;

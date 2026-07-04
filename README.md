@@ -5,6 +5,8 @@ this repo — no theme since v0.3 (2026-07-04).
 
 - Hugo: pinned to `v0.161.1`. Canonical pin lives in the quilombo `hugo-site`
   role (`ansible/roles/hugo-site/defaults/main.yml`); bump there and here together.
+- Fonts: self-hosted IBM Plex Serif + JetBrains Mono in `static/fonts/`,
+  pinned — sources, licenses, and hashes in `docs/fonts.md`.
 - Design spec (current): `docs/superpowers/specs/2026-07-04-afonseca-me-v0.3-redesign.md`.
 - Owner profile reference: `docs/profile.md`. CV source of truth: `docs/cv/cv.md`.
 

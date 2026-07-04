@@ -67,7 +67,8 @@ Described generically per privacy rule 7 — no project codenames, no machine na
   no CTA blocks, no emoji in content, no promotional framing.
 - Facts over adjectives. Empty sections are removed, never marked "coming soon".
 - Approved palette: forest green (see v0.2/v0.3 specs). Serif body
-  (Iowan Old Style stack), JetBrains Mono for code and labels.
+  (IBM Plex Serif, self-hosted), JetBrains Mono for code and labels
+  (pins and hashes: `docs/fonts.md`).
 
 ## Fixed site facts
 

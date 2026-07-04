@@ -37,6 +37,9 @@ domain.
 - **Hugo `v0.161.1`** — canonical pin is in quilombo
   `ansible/roles/hugo-site/defaults/main.yml`. If you bump Hugo, change it in
   **both** that file and this repo's `README.md`, and test before pinning.
+- **Fonts** — IBM Plex Serif `@ibm/plex-serif@2.0.0`, JetBrains Mono `v2.304`,
+  self-hosted in `static/fonts/`. Manual upgrade only; sources, licenses, and
+  sha256 hashes in `docs/fonts.md` — update hashes when replacing files.
 
 ## Local development
 

@@ -61,11 +61,17 @@ Signature elements:
    with dates, and a closing contact sentence with inline text links. Nothing
    truncated, nothing "→ See all".
 
-4. **Typography as identity.** Keep the Iowan Old Style / Charter serif stack
-   and JetBrains Mono. Mono is used for *labels* (section kickers, meta lines,
-   title-block field names) in small uppercase with letter-spacing — the
-   engineering-document register. Old-style numerals in prose where the font
-   supports them (`font-variant-numeric: oldstyle-nums`).
+4. **Typography as identity.** IBM Plex Serif for prose and JetBrains Mono for
+   labels (section kickers, meta lines, title-block field names, small
+   uppercase with letter-spacing — the engineering-document register), both
+   **self-hosted** as pinned WOFF2 files from `static/fonts/` so the site
+   renders identically on every OS; the old system stack remains as fallback.
+   No font CDN — same-origin requests only. Provenance, versions, and hashes:
+   `docs/fonts.md`. Old-style numerals in prose
+   (`font-variant-numeric: oldstyle-nums`).
+   *(Amended 2026-07-04, same PR: the first draft kept the system stack, which
+   rendered differently per OS — Iowan Old Style is macOS-only and not
+   redistributable.)*
 
 5. **Project pages get a data table.** Role / period / stack rendered as a
    small ruled meta table under the title — the drawing's parts list.
