@@ -2,10 +2,10 @@
 title: "This website"
 date: 2026-05-26
 draft: false
-summary: "A static personal site built with Hugo and PaperMod, served from a personal VPS via Caddy."
+summary: "A static personal site built with Hugo and hand-written layouts, served from a personal VPS via Caddy."
 role: "Designer, developer"
 period: "2026"
-stack: ["Hugo", "PaperMod", "Ansible", "Caddy"]
+stack: ["Hugo", "Ansible", "Caddy"]
 links:
   - title: "Source on GitHub"
     url: "https://github.com/angelojpfonseca/afonseca.me"

@@ -1,38 +1,20 @@
 baseURL = "https://afonseca.me"
-languageCode = "en"
+locale = "en"
 defaultContentLanguage = "en"
 title = "Angelo Fonseca"
-theme = "PaperMod"
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
+disableKinds = ["taxonomy", "term"]
 
 [params]
   author = "Angelo Fonseca"
-  description = "Mechanical engineer transitioning to data analytics and AI consulting. Mannheim, Germany."
-  defaultTheme = "light"
-  disableThemeToggle = false
-  ShowReadingTime = false
-  ShowShareButtons = false
-  ShowPostNavLinks = false
-  ShowBreadCrumbs = false
-  ShowCodeCopyButtons = false
-  ShowWordCount = false
-  ShowRssButtonInSectionTermList = true
-  dateFormat = "2006-01-02"
-  DateFormat = "2006-01-02"
-
-[[params.socialIcons]]
-  name = "linkedin"
-  url = "https://linkedin.com/in/angelojpfonseca"
-
-[[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/angelojpfonseca"
-
-[[params.socialIcons]]
-  name = "email"
-  url = "mailto:contact@afonseca.me"
+  description = "Mechanical engineer working in data and AI. Mannheim, Germany."
+  location = "Mannheim, Germany"
+  email = "contact@afonseca.me"
+  github = "https://github.com/angelojpfonseca"
+  linkedin = "https://linkedin.com/in/angelojpfonseca"
+  sourceRepo = "https://github.com/angelojpfonseca/afonseca.me"
 
 [menu]
   [[menu.main]]

@@ -1,0 +1,20 @@
+{{- define "main" }}
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+{{- with .Content }}
+<div class="prose">{{ . }}</div>
+{{- end }}
+<ul class="project-list">
+  {{- range .RegularPages }}
+  <li>
+    <span class="plist-row">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="plist-leader" aria-hidden="true"></span>
+      <span class="plist-period">{{ .Params.period }}</span>
+    </span>
+    <p>{{ .Params.summary }}</p>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}

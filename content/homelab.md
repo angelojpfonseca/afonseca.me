@@ -1,6 +1,6 @@
 ---
 title: "Home Lab"
-lastmod: 2026-06-02
+lastmod: 2026-07-04
 draft: false
 ---
 
@@ -32,10 +32,10 @@ This list is intentionally shallow. I update it when something earns a place I e
 
 ## How this site is built
 
-This site is built with [Hugo](https://gohugo.io) and the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme, with light CSS overrides. Source is on [GitHub](https://github.com/angelojpfonseca/afonseca.me).
+This site is built with [Hugo](https://gohugo.io) — no theme; the layouts and the single stylesheet are written by hand in this repo. Source is on [GitHub](https://github.com/angelojpfonseca/afonseca.me).
 
-- **Typography:** system serif stack (Iowan Old Style / Charter / IBM Plex Serif), JetBrains Mono for code.
-- **No JavaScript** beyond the theme's own theme-switcher.
+- **Typography:** system serif stack (Iowan Old Style / Charter / IBM Plex Serif), JetBrains Mono for code and labels.
+- **No JavaScript** beyond a small hand-written light/dark toggle.
 - **No analytics, no trackers, no embeds**, no third-party requests at runtime.
 - **Hosted on a personal VPS** behind Caddy, served over HTTPS with a Let's Encrypt certificate. Builds are pushed to the server via Ansible.
 
