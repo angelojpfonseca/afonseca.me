@@ -1,0 +1,9 @@
+{{- /* Single source for the page description used by meta, OpenGraph,
+       Twitter cards, and schema. Order: front-matter description →
+       page summary (regular pages) → site description. */ -}}
+{{- $desc := .Description -}}
+{{- if and (not $desc) .IsPage -}}
+  {{- with .Summary -}}{{- $desc = . | plainify | chomp | truncate 160 -}}{{- end -}}
+{{- end -}}
+{{- if not $desc -}}{{- $desc = site.Params.description -}}{{- end -}}
+{{- return $desc -}}

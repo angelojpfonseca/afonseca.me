@@ -1,7 +1,8 @@
 ---
 title: "About"
 description: "Angelo Junio Pereira Fonseca — mechanical engineer turned consultant, currently working at the intersection of HVAC engineering, data analytics, and AI. Based in Mannheim."
-lastmod: 2026-05-26
+date: 2026-05-26
+lastmod: 2026-07-04
 draft: false
 ---
 
@@ -9,7 +10,7 @@ draft: false
 
 Angelo Junio Pereira Fonseca — mechanical engineer turned consultant, currently working at the intersection of HVAC engineering, data analytics, and AI. Based in Mannheim, Germany.
 
-Since June 2018 I have worked as a Pre-Sales Consultant at Daikin Airconditioning Germany GmbH, where my role has gradually shifted from classical HVAC engineering toward data-driven process work: building Python and Power BI automation, designing reports and dashboards, and co-designing a digital process redesign that cut the Pre-Sales team's annual workload by roughly ten percent. More recently I have been working on integrating large-language-model and retrieval-augmented-generation tooling into customer-quotation workflows.
+Since June 2018 I have worked as a Pre-Sales Consultant at Daikin Airconditioning Germany GmbH, where my role has gradually shifted from classical HVAC engineering toward data-driven process work: building Python and Power BI automation, designing reports and dashboards, and co-designing a digital process redesign that cut the Pre-Sales team's annual workload by roughly ten percent. More recently I have been working on integrating large-language-model and retrieval-augmented-generation tooling into customer-quotation workflows; that work now sits in Daikin's internal RPA & AI team.
 
 Before Daikin I was a student research assistant at Fraunhofer IPK in Berlin (2015–2017), where I worked on tactile, optical, and electronic measurement experiments and built instrumentation for research processes. An earlier internship took me through the Application Engineering team at Johnson Controls in Brasília, working on HVAC, fire-protection, and building-automation systems.
 

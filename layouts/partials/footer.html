@@ -1,19 +1,40 @@
-{{- if not (.Param "hideFooter") }}
-<footer class="footer">
-  <span>&copy; {{ now.Format "2006" }} {{ .Site.Params.author | default .Site.Title }}</span>
+<footer class="titleblock" aria-label="Site information">
+  <dl>
+    <div class="tb-cell">
+      <dt>Name</dt>
+      <dd>© {{ now.Format "2006" }} {{ site.Params.author }}</dd>
+    </div>
+    <div class="tb-cell">
+      <dt>Location</dt>
+      <dd>{{ site.Params.location }}</dd>
+    </div>
+    <div class="tb-cell">
+      <dt>Built</dt>
+      <dd>{{ now.Format "2006-01-02" }} · Hugo</dd>
+    </div>
+    <div class="tb-cell">
+      <dt>Contact</dt>
+      <dd><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></dd>
+    </div>
+    <div class="tb-cell">
+      <dt>Source</dt>
+      <dd><a href="{{ site.Params.sourceRepo }}" rel="noopener">github.com/angelojpfonseca/afonseca.me</a></dd>
+    </div>
+    <div class="tb-cell">
+      <dt>Privacy</dt>
+      <dd>no trackers · no analytics · no third-party requests</dd>
+    </div>
+  </dl>
 </footer>
-{{- end }}
-
-{{- if (not site.Params.disableThemeToggle) }}
 <script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
+  // Theme toggle. Keep this script when touching the footer — without it the
+  // header button does nothing (same failure mode as the old PaperMod gotcha).
+  document.getElementById("theme-toggle").addEventListener("click", function () {
+    var root = document.documentElement;
+    root.classList.toggle("dark");
+    var dark = root.classList.contains("dark");
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", dark ? "#141a14" : "#f5f6f2");
+    try { localStorage.setItem("pref-theme", dark ? "dark" : "light"); } catch (e) {}
+  });
 </script>
-{{- end }}

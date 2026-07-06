@@ -1,33 +1,10 @@
-{{- if .Params.cover.image -}}
+{{- $cover := .Params.image | default .Params.cover.image }}
+{{- if $cover }}
 <meta name="twitter:card" content="summary_large_image" />
-{{- if (ne $.Params.cover.relative true) }}
-<meta name="twitter:image" content="{{ .Params.cover.image | absURL }}" />
+<meta name="twitter:image" content="{{ $cover | absURL }}" />
 {{- else }}
-<meta name="twitter:image" content="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}" />
-{{- end}}
-{{- else }}
-{{- $images := partial "templates/_funcs/get-page-images" . -}}
-{{- with index $images 0 -}}
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="{{ .Permalink }}" />
-{{- else -}}
-<meta name="twitter:card" content="summary"/>
-{{- end -}}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="{{ index site.Params.images 0 | absURL }}" />
 {{- end }}
-<meta name="twitter:title" content="{{ .Title }}"/>
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
-{{- /* site.Social removed in Hugo 0.161; we only use site.Params.social if set. */}}
-{{- $twitterSite := "" }}
-{{- with site.Params.social }}
-  {{- if reflect.IsMap . }}
-    {{- $twitterSite = .twitter }}
-  {{- end }}
-{{- end }}
-
-{{- with $twitterSite }}
-  {{- $content := . }}
-  {{- if not (strings.HasPrefix . "@") }}
-    {{- $content = printf "@%v" $twitterSite }}
-  {{- end }}
-<meta name="twitter:site" content="{{ $content }}"/>
-{{- end }}
+<meta name="twitter:title" content="{{ .Title }}" />
+<meta name="twitter:description" content="{{ partial "page-description.html" . }}" />

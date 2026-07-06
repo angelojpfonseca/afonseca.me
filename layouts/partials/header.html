@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-name" href="/">{{ site.Title }}</a>
+    <nav class="site-nav" aria-label="Main">
+      {{- range site.Menus.main }}
+      <a href="{{ .URL }}"{{ if $.IsMenuCurrent "main" . }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+      <button class="theme-toggle" id="theme-toggle" type="button">
+        <span class="tt-to-dark" aria-hidden="true">dark</span>
+        <span class="tt-to-light" aria-hidden="true">light</span>
+        <span class="visually-hidden">Toggle colour scheme</span>
+      </button>
+    </nav>
+  </div>
+</header>

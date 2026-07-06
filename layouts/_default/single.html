@@ -1,0 +1,22 @@
+{{- define "main" }}
+<article>
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if eq .Section "projects" }}
+    <table class="specs">
+      <tbody>
+        {{- with .Params.role }}<tr><th scope="row">Role</th><td>{{ . }}</td></tr>{{ end }}
+        {{- with .Params.period }}<tr><th scope="row">Period</th><td>{{ . }}</td></tr>{{ end }}
+        {{- with .Params.stack }}<tr><th scope="row">Stack</th><td>{{ delimit . " · " }}</td></tr>{{ end }}
+        {{- with .Params.links }}<tr><th scope="row">Links</th><td>{{ range $i, $l := . }}{{ if $i }} · {{ end }}<a href="{{ $l.url }}" rel="noopener">{{ $l.title }}</a>{{ end }}</td></tr>{{ end }}
+      </tbody>
+    </table>
+    {{- else if not .Lastmod.IsZero }}
+    <p class="page-meta">Last updated {{ .Lastmod.Format "2006-01-02" }}</p>
+    {{- end }}
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{- end }}

@@ -4,7 +4,11 @@ Agent guidance for this repository. Read before proposing deploy/CI changes.
 
 ## What this is
 
-Source for the personal website <https://afonseca.me>. Hugo + PaperMod theme.
+Source for the personal website <https://afonseca.me>. Hugo with hand-written
+layouts and a single hand-written stylesheet — **no theme** since v0.3
+(2026-07-04; PaperMod submodule removed). Facts about the site's owner for
+copy/CV work: `docs/profile.md` (public-safe; check the v0.1 spec's privacy
+constraints before adding personal facts anywhere).
 
 ## Deployment — single source of truth
 
@@ -33,20 +37,25 @@ domain.
 - **Hugo `v0.161.1`** — canonical pin is in quilombo
   `ansible/roles/hugo-site/defaults/main.yml`. If you bump Hugo, change it in
   **both** that file and this repo's `README.md`, and test before pinning.
-- **PaperMod `v8.0`** — git submodule (`themes/PaperMod`). Manual upgrade after
-  testing only; never automatic.
+- **Fonts** — IBM Plex Serif `@ibm/plex-serif@2.0.0`, JetBrains Mono `v2.304`,
+  self-hosted in `static/fonts/`. Manual upgrade only; sources, licenses, and
+  sha256 hashes in `docs/fonts.md` — update hashes when replacing files.
 
 ## Local development
 
 **Hugo is not installed on the local machine.** Build verification only happens on deploy via the Ansible playbook. When writing implementation plans or verify steps, do not rely on `hugo --minify` or `hugo server` locally — verify templates and CSS by inspection instead. Install from the quilombo pin if local builds become needed (quilombo #279).
 
-## PaperMod gotcha
+## Theme-toggle gotcha
 
-Overriding `layouts/partials/footer.html` strips PaperMod's theme-toggle `addEventListener` script. Always include it (or check `layouts/partials/extend_footer.html`) when touching the footer partial.
+The light/dark toggle needs both halves: the FOUC guard in
+`layouts/partials/head.html` and the `addEventListener` script at the end of
+`layouts/partials/footer.html`. Keep both when touching those partials, or the
+header button silently does nothing.
 
 ## References
 
-- Design spec (v0.2, current): `docs/superpowers/specs/2026-06-02-afonseca-me-v0.2-redesign.md`
-- Design spec (v0.1, superseded): `docs/superpowers/specs/2026-05-26-afonseca-me-redesign-design.md`
-- Implementation plan (v0.2): `docs/superpowers/plans/2026-06-02-afonseca-me-v0.2.md`
+- Design spec (v0.3, current): `docs/superpowers/specs/2026-07-04-afonseca-me-v0.3-redesign.md`
+- Design spec (v0.2, superseded): `docs/superpowers/specs/2026-06-02-afonseca-me-v0.2-redesign.md`
+- Design spec (v0.1, privacy constraints still in force): `docs/superpowers/specs/2026-05-26-afonseca-me-redesign-design.md`
+- Owner profile reference: `docs/profile.md` · CV source: `docs/cv/cv.md`
 - Deploy role: quilombo `ansible/roles/hugo-site/`

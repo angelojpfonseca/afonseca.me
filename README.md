@@ -1,12 +1,14 @@
 # afonseca.me
 
-Personal website source. Built with Hugo and the PaperMod theme.
+Personal website source. Built with Hugo; layouts and CSS are hand-written in
+this repo — no theme since v0.3 (2026-07-04).
 
 - Hugo: pinned to `v0.161.1`. Canonical pin lives in the quilombo `hugo-site`
   role (`ansible/roles/hugo-site/defaults/main.yml`); bump there and here together.
-- PaperMod: pinned to `v8.0` (git submodule). Manual upgrade after testing — never automatic.
-- Design spec: `docs/superpowers/specs/2026-05-26-afonseca-me-redesign-design.md`.
-- Implementation plan: `docs/superpowers/plans/2026-05-26-afonseca-me-v0.1.md`.
+- Fonts: self-hosted IBM Plex Serif + JetBrains Mono in `static/fonts/`,
+  pinned — sources, licenses, and hashes in `docs/fonts.md`.
+- Design spec (current): `docs/superpowers/specs/2026-07-04-afonseca-me-v0.3-redesign.md`.
+- Owner profile reference: `docs/profile.md`. CV source of truth: `docs/cv/cv.md`.
 
 Live site: <https://afonseca.me>.
 
